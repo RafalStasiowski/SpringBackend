@@ -26,8 +26,10 @@ public class User {
     private String firstName;
     @NotBlank
     private String LastName;
+    @NotBlank
+    private String password;
     @Email
     @NotBlank
     private String email;
-    private boolean active;
+    private boolean advertiser;
 }
