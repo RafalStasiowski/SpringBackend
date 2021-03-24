@@ -5,7 +5,6 @@ import com.example.backend.dto.RegisterRequest;
 import com.example.backend.model.User;
 import com.example.backend.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,6 @@ import javax.transaction.Transactional;
 public class UserService {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
-    private AuthenticationManager authenticationManager;
 
     public void register(RegisterRequest registerRequest) {
         User user = new User();
@@ -31,8 +29,5 @@ public class UserService {
 
         userRepository.save(user);
     }
-
-
-
 
 }
