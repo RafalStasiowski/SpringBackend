@@ -1,5 +1,6 @@
 package com.example.backend.security;
 
+
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,7 +24,8 @@ public class Security extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder PasswordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 }
