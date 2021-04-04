@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
@@ -19,5 +16,8 @@ public class Token {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String token;
-    private Instant createDate;
+    @OneToOne(fetch = FetchType.LAZY)
+    private User user;
+    private Instant validUntil;
+
 }
