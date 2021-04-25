@@ -1,17 +1,19 @@
 package com.example.backend.service;
 
 
+import com.example.backend.dto.LoginRequest;
 import com.example.backend.dto.RegisterRequest;
 import com.example.backend.model.User;
 import com.example.backend.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -33,8 +35,14 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public UserDetails login(LoginRequest loginRequest) {
+        Optional<User> user = userRepository.findByUsername(loginRequest.getUsername());
 
+        if(user != null) {
 
+        }
+
+    }
 
     public List<User> show() {
         List<User> userList = userRepository.findAll();
